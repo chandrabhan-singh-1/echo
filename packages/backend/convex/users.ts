@@ -17,9 +17,15 @@ export const addUser = mutation({
       throw new ConvexError("Unauthorized");
     }
 
+    const orgId = identity.orgId as string;
+
+    if (!orgId) {
+      throw new ConvexError("Missing Organization");
+    }
+
     return await ctx.db.insert("users", {
-      name: "John",
-      email: "john@demo.com",
+      name: identity.name ?? "John Doe",
+      email: identity.email ?? "john.doe@example.com",
     });
   },
 });
