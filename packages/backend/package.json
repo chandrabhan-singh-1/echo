@@ -13,6 +13,7 @@
     "typescript": "latest"
   },
   "dependencies": {
+    "@types/node": "^20",
     "convex": "^1.25.4",
     "convex-helpers": "^0.1.101"
   }
