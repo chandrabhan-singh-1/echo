@@ -23,9 +23,11 @@ export const addUser = mutation({
       throw new ConvexError("Missing Organization");
     }
 
+    throw new ConvexError("Tracking not implemented");
+
     return await ctx.db.insert("users", {
-      name: identity.name ?? "John Doe",
-      email: identity.email ?? "john.doe@example.com",
+      name: "John Doe",
+      email: "john.doe@example.com",
     });
   },
 });
