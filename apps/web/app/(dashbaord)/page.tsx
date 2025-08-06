@@ -7,7 +7,6 @@ import { api } from "@workspace/backend/_generated/api";
 import { Button } from "@workspace/ui/components/button";
 
 export default function Page() {
-  const users = useQuery(api.users.getUsers, {});
   const addUser = useMutation(api.users.addUser);
 
   return (
@@ -17,12 +16,7 @@ export default function Page() {
           <h1 className="text-2xl font-bold">Web</h1>
           <UserButton />
           <OrganizationSwitcher hidePersonal />
-          {users?.map((user) => (
-            <div key={user._id}>
-              <p>{user.name}</p>
-              <p>{user.email}</p>
-            </div>
-          ))}
+
           <Button size="sm" onClick={() => addUser({})}>
             Add User
           </Button>
