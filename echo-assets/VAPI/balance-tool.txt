@@ -1,0 +1,1 @@
+Retrieve the balance for an account based on provided account holder name and last 4 digits of the phone number.
