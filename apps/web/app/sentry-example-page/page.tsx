@@ -11,7 +11,7 @@ class SentryExampleFrontendError extends Error {
   }
 }
 
-const Page = () => {
+export default function Page() {
   const [hasSentError, setHasSentError] = useState(false);
   const [isConnected, setIsConnected] = useState(true);
 
@@ -228,6 +228,4 @@ const Page = () => {
       `}</style>
     </div>
   );
-};
-
-export default Page;
+}

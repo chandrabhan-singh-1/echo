@@ -1,5 +1,3 @@
-const Page = () => {
+export default function Page() {
   return <div>Integrations</div>;
-};
-
-export default Page;
+}
