@@ -6,7 +6,7 @@ import { useMutation, useQuery } from "convex/react";
 import { api } from "@workspace/backend/_generated/api";
 import { Button } from "@workspace/ui/components/button";
 
-export default function Page() {
+const Page = () => {
   const addUser = useMutation(api.users.addUser);
 
   return (
@@ -24,4 +24,6 @@ export default function Page() {
       </div>
     </>
   );
-}
+};
+
+export default Page;

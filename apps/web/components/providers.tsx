@@ -19,13 +19,17 @@ export function Providers({ children }: { children: React.ReactNode }) {
     <ConvexProviderWithClerk client={convexClient} useAuth={useAuth}>
       <NextThemesProvider
         attribute="class"
-        defaultTheme="system"
-        enableSystem
+        // defaultTheme="system"
+        enableSystem={false}
         disableTransitionOnChange
         enableColorScheme
+        forcedTheme="light"
       >
         {children}
       </NextThemesProvider>
     </ConvexProviderWithClerk>
   );
+}
+
+{
 }
