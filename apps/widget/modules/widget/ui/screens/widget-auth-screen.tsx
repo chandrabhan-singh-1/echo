@@ -65,7 +65,7 @@ export const WidgetAuthScreen = () => {
       organizationId,
       metadata,
     });
-
+    console.log("contactSessionId: ", contactSessionId);
     setContactSessionId(contactSessionId);
   };
 
