@@ -28,10 +28,27 @@ export const ContactSessions = Table("contact_sessions", {
   ),
 });
 
+export const Conversations = Table("conversations", {
+  threadId: v.string(),
+  organizationId: v.string(),
+  contactSessionId: v.id("contactSessions"),
+  status: v.union(
+    v.literal("resolved"),
+    v.literal("unresolved"),
+    v.literal("escalated")
+  ),
+});
+
 export default defineSchema({
   users: Users.table.index("by_email", ["email"]),
 
   contactSessions: ContactSessions.table
     .index("by_organization_id", ["organizationId"])
     .index("by_expires_at", ["expiresAt"]),
+
+  conversations: Conversations.table
+    .index("by_organization_id", ["organizationId"])
+    .index("by_contact_session_id", ["contactSessionId"])
+    .index("by_thread_id", ["threadId"])
+    .index("by_status_and_organization_id", ["status", "organizationId"]),
 });
